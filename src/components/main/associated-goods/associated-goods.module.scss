@@ -1,0 +1,113 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+
+.wrapper {
+  margin-top: 8.125em; //130px
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em; //40px
+
+  @include breakpoints.desktop {
+    margin-top: 8.75em; //140px
+  }
+  @include breakpoints.tablet {
+    margin-top: 6.25em; //100px
+  }
+  @include breakpoints.mobile {
+    margin-top: 3.75em; //60px
+  }
+
+  .title {
+    @include breakpoints.tablet {
+      @include fontsStyles.DisplayMD;
+    }
+    @include breakpoints.mobile {
+      @include fontsStyles.TextLG;
+    }
+  }
+
+  .goodsList {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    @include breakpoints.tablet_small {
+      flex-direction: column;
+    }
+
+    .goodItemWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 33%;
+      height: 100%;
+      @include breakpoints.tablet_small {
+        width: 100%;
+      }
+
+      background-color: colors.$white;
+      border-radius: 8px;
+      padding: 30px 0 0 40px;
+      position: relative;
+      @include breakpoints.tablet {
+        padding: 24px 0 0 24px;
+      }
+
+
+    }
+
+    .goodItem {
+      display: flex;
+      flex-direction: column;
+
+
+      .content {
+        display: flex;
+        align-items: end;
+
+        justify-content: space-between;
+      }
+
+      .itemTitle {
+        @include fontsStyles.DisplayMD;
+        color: colors.$black;
+        min-height: 72px;
+        @include breakpoints.tablet {
+          @include fontsStyles.TextLG;
+        }
+        @include breakpoints.tablet_small {
+          @include fontsStyles.DisplayMD;
+        }
+        @include breakpoints.mobile {
+          @include fontsStyles.TextMD;
+        }
+      }
+
+      .img {
+        width: 200px;
+        height: 190px;
+        @include breakpoints.desktop_medium {
+          width: 140px;
+          height: 133px;
+        }
+        @include breakpoints.tablet_small {
+          width: 170px;
+          height: 163px;
+        }
+        @include breakpoints.mobile {
+          width: 140px;
+          height: 133px;
+        }
+      }
+
+      .arrow {
+        margin-bottom: 25px;
+
+        &::before {
+          content: url("@assets/icons/arrow.svg");
+        }
+      }
+    }
+  }
+}

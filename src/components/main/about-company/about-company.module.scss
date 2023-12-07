@@ -1,0 +1,66 @@
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+
+
+.aboutCompanyWrapper {
+  margin-top: 10em; //160px
+
+  display: flex;
+  gap: 3.125em; //50px
+  align-items: center;
+  @include breakpoints.desktop {
+    margin-top: 8.75em; //140px
+    gap: 4.375em; //70px
+  }
+  @include breakpoints.tablet {
+    margin-top: 6.25em; //100px
+    gap: 1.25em; //20px
+  }
+  @include breakpoints.mobile {
+    margin-top: 3.75em; //60px
+  }
+
+  .img {
+    &::before {
+      content: url("@assets/images/about.png");
+      @include breakpoints.desktop {
+        content: url("@assets/images/logo-second.svg");
+      }
+      @include breakpoints.mobile {
+        display: none;
+      }
+    }
+  }
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2.5em; //40px
+    @include breakpoints.desktop {
+      order: -1;
+    }
+    @include breakpoints.mobile {
+      gap: 1.875em;
+    }
+
+    .title {
+      @include breakpoints.tablet {
+        @include fontsStyles.DisplayMD;
+      }
+      @include breakpoints.mobile {
+        @include fontsStyles.TextLG;
+      }
+    }
+
+    .textWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.875em;
+      @include fontsStyles.TextLG;
+      @include breakpoints.tablet {
+        @include fontsStyles.TextXS;
+      }
+    }
+  }
+}

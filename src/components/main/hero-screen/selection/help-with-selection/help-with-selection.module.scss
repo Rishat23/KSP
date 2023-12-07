@@ -1,0 +1,127 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$white;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.wrapper {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  background-color: colors.$dark;
+
+
+  .btnClose {
+    display: flex;
+    align-self: end;
+    background-color: colors.$dark;
+
+    &::before {
+      content: url('@assets/icons/closebtn.svg');
+    }
+  }
+
+  .contentWrapper {
+    padding: 20px 70px 60px 70px;
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+
+    .contentContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+
+    .title {
+      @include fontsStyles.DisplayMD;
+    }
+
+    .text {
+      @include fontsStyles.TextLG;
+    }
+
+    .linkWrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      .link {
+        padding: 8px 14px;
+        border: 1px solid colors.$gray;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: initial;
+
+        @include fontsStyles.TextMD;
+        @include fontsFamilies.FontFamilyInterBold;
+      }
+
+      .whatsapp {
+        &::before {
+          content: url('@assets/icons/whatsapp.svg');
+        }
+      }
+
+      .telegram {
+        &::before {
+          content: url('@assets/icons/telegram.svg');
+        }
+      }
+    }
+  }
+
+  .contactsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .inputWrapper {
+      display: flex;
+      gap: 8px;
+
+      .input {
+        flex-grow: 1;
+
+        color: colors.$border;
+        padding: 0.75em 1.25em;
+        background: transparent;
+        border: 1px solid colors.$border;
+        border-radius: 4px;
+
+      }
+    }
+
+
+    .confidential {
+      @include fontsStyles.TextXS;
+      color: colors.$gray;
+
+      .underline {
+        color: colors.$gray;
+        border-bottom: 1px solid colors.$gray;
+      }
+    }
+  }
+}

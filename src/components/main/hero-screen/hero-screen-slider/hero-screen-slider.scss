@@ -1,0 +1,24 @@
+@use '@assets/styles/vars/colors';
+
+.swiper-pagination-bullets {
+  position: absolute;
+  z-index: 3;
+  transform: translateY(-50%);
+  top: 90%;
+  left: 68px;
+  display: flex;
+  gap: 10px;
+
+}
+
+.swiper-pagination-bullet {
+  background-color: colors.$white;
+  border-radius: 3px;
+  width: 20px;
+  height: 3px;
+
+  &-active {
+    background-color: colors.$gray;
+    width: 40px;
+  }
+}

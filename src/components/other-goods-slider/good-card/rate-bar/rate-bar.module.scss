@@ -1,0 +1,29 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsStyles';
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.5em; //8px
+
+	.stars {
+		display: flex;
+		gap: 0.5em;
+
+		.active {
+			&::before {
+				content: url('@assets/icons/star-enabled.svg');
+			}
+		}
+		.common {
+			&::before {
+				content: url('@assets/icons/star-disabled.svg');
+			}
+		}
+	}
+
+	.score {
+		@include fontsStyles.TextXS;
+		color: colors.$gray;
+	}
+}

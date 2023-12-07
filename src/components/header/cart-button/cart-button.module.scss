@@ -1,0 +1,50 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+
+.wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  .cost {
+    @include fontsFamilies.FontFamilyInterBold;
+    @include fontsStyles.TextLG;
+
+    @include breakpoints.desktop_extra_small {
+      display: none;
+    }
+  }
+
+  .cartButton {
+    position: relative;
+
+    &::before {
+      content: url('@assets/icons/cart.svg');
+    }
+
+    .counterWrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(50%);
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: colors.$black;
+
+      background: colors.$white;
+
+      .counter {
+        font-size: 0.6875em; //11px
+        line-height: 0;
+      }
+    }
+  }
+}
+

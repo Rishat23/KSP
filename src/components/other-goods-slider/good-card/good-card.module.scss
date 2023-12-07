@@ -1,0 +1,45 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.wrapper {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.125em; //2px
+  gap: 0.3125em; //5px
+  background-color: colors.$white;
+
+  .image {
+    width: 100%;
+    height: 200px;
+    @include breakpoints.mobile_middle {
+      height: 110px;
+    }
+  }
+
+  .title {
+
+    @include fontsStyles.TextMD;
+    color: colors.$black;
+    @include breakpoints.mobile {
+      @include fontsStyles.TextXS;
+      @include fontsFamilies.FontFamilyInterRegular;
+    }
+  }
+
+  .cost {
+    @include fontsFamilies.FontFamilyInterBold;
+    @include fontsStyles.TextLG;
+    color: colors.$black;
+    @include breakpoints.mobile {
+      @include fontsStyles.TextXS;
+    }
+  }
+
+  .delivery {
+    @include fontsStyles.TextXS;
+    color: colors.$gray;
+  }
+}

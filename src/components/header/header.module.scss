@@ -1,0 +1,45 @@
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+
+.header {
+	padding-top: 1.875em;
+
+	align-items: center;
+
+	display: flex;
+	gap: 1.875em; //30px
+
+	@include breakpoints.desktop_base {
+		gap: 1.25em;
+	}
+}
+
+.logo {
+	&::before {
+		content: url('@assets/images/logo.svg');
+
+		@include breakpoints.tablet_small {
+			content: url('@assets/images/logo-768.svg');
+		}
+		@include breakpoints.mobile {
+			content: url('@assets/images/logo-360.svg');
+		}
+	}
+}
+
+.phone {
+	@include fontsFamilies.FontFamilyInterBold;
+	@include fontsStyles.TextLG;
+	display: flex;
+	align-items: center;
+	gap: 0.75em; //12px
+
+	&::before {
+		content: url('@assets/icons/phone.svg');
+	}
+
+	@include breakpoints.desktop_base {
+		display: none;
+	}
+}

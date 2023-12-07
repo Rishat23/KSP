@@ -1,0 +1,27 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.parametersList {
+	width: 410px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.625em;
+
+	.parameterItem {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.25em;
+
+		.key {
+			color: colors.$border;
+		}
+
+		.separator {
+			flex-grow: 1;
+			border-bottom: 2px dotted colors.$border;
+		}
+	}
+}

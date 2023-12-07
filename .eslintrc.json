@@ -1,0 +1,51 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": [
+		"plugin:react/recommended", "airbnb", "plugin:prettier/recommended"
+	],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"rules": {
+		"prettier/prettier": [
+			"error", {
+				"arrowParens": "always"
+			}
+		],
+		"react/function-component-definition": 0,
+		"import/extensions": 0,
+		"react/react-in-jsx-scope": 0,
+		"react/prop-types": 0,
+		"react/button-has-type": 0,
+		"react/jsx-props-no-spreading": 0,
+		"no-restricted-exports": [
+			0, {
+				"restrictedNamedExports": ["default"]
+			}
+		],
+		"import/no-unresolved": [
+			2, {
+				"ignore": [
+					"^@assets/", "^@components/", "^@layouts/", "^@pages/", "^@hooks/", "^@ui/", "^@utils/"
+				]
+			}
+		],
+		"react/jsx-filename-extension": [
+			1, {
+				"extensions": [".js", ".jsx"]
+			}
+		]
+	}
+}

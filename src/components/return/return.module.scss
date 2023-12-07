@@ -1,0 +1,115 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/breakpoints';
+
+.wrapper {
+  padding: 2.5em 0 8.75em 0; // 40px 0 140px 0
+}
+
+.wrapperHeader {
+  padding-bottom: 1.25em; // 40px
+  @include fontsStyles.DisplayLG;
+  @include fontsFamilies.FontFamilyInterBold;
+
+  @include breakpoints.desktop_extra_small {
+    @include fontsStyles.DisplayMD;
+  }
+}
+
+.wrapperContainer {
+  display: flex;
+  gap: 10em; // 160px
+  width: 65%;
+
+  @include breakpoints.desktop {
+    gap: 1.875em; // 30px
+    width: 80%;
+  }
+
+  @include breakpoints.desktop_extra_small {
+    gap: 1.875em; // 30px
+    width: 95%;
+  }
+
+  @include breakpoints.mobile {
+    display: grid;
+    width: 100%;
+    gap: 1.25em; // 20px
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875em; // 30px
+
+  @include breakpoints.mobile {
+    grid-row-start: 2;
+    gap: 1.25em; // 20px
+  }
+}
+
+.contentTitle {
+  @include fontsStyles.TextLG;
+  @include fontsFamilies.FontFamilyInterBold;
+  padding-bottom: 0.9375em; // 15px
+  display: flex;
+  align-items: center;
+  gap: 1.25em; // 20px
+
+  @include breakpoints.mobile {
+    @include fontsStyles.TextMD;
+    gap: 0.625em; // 10px
+  }
+}
+
+.contentText {
+  @include fontsStyles.TextMD;
+  @include fontsFamilies.FontFamilyInterRegular;
+
+  @include breakpoints.mobile {
+    @include fontsStyles.TextXS;
+  }
+}
+
+.pNumber {
+    counter-reset: test;
+}
+
+.pNumber p::before {
+  counter-increment: test;
+  content: " " counter(test) ". ";
+}
+
+.help {
+  &::before {
+    content: url('@assets/icons/help.svg');
+  }
+}
+
+.clipboard {
+  &::before {
+    content: url('@assets/icons/clipboard.svg');
+  }
+}
+
+.mail {
+  &::before {
+    content: url('@assets/icons/mail.svg');
+  }
+}
+
+.contentBlock {
+  padding: 1.875em; // 30px
+  background-color: transparent;
+  border: 0.0625em solid colors.$gray; // 1px
+  border-radius: 0.25em; // 4px
+
+  @include breakpoints.mobile {
+    padding: 1.25em; // 20px
+  }
+}
+
+
+

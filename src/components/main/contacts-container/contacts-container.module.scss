@@ -1,0 +1,41 @@
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+
+
+.wrapper {
+  margin: 10em 0 10em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  @include breakpoints.desktop {
+    margin: 8.75em 0 8.75em;
+  }
+  @include breakpoints.tablet {
+    margin: 6.25em 0 6.25em; //100px
+    gap: 1.875em; //30px
+
+  }
+  @include breakpoints.mobile {
+    margin: 3.75em 0 3.75em; //60px
+    gap: 1.25em; //20px
+  }
+
+  .title {
+    @include breakpoints.tablet {
+      @include fontsStyles.DisplayMD;
+    }
+    @include breakpoints.mobile {
+      @include fontsStyles.TextLG;
+    }
+  }
+
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+
+}

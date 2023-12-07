@@ -1,0 +1,53 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/breakpoints';
+
+.link {
+  padding: 0.625em 1.25em 0.625em 1.25em; // 10px 20px 10px 20px
+  border-left-color: colors.$border;
+  border-left-style: solid;
+  border-left-width: 0.0625em; // 1px
+  @include fontsStyles.TextMD;
+  @include fontsFamilies.FontFamilyInterRegular;
+
+  @include breakpoints.mobile {
+    border-left-width: 0em; // 0px
+
+    border-bottom-color: colors.$border;
+    border-bottom-style: solid;
+    border-bottom-width: 0.0625em; // 1px
+    @include fontsStyles.TextXS;
+  }
+}
+
+.link:active {
+  padding: 0.625em 1.25em 0.625em 1.25em; // 10px 20px 10px 20px
+  border-left-color: colors.$main;
+  border-left-style: solid;
+  border-left-width: 0.125em; // 2px
+  @include fontsStyles.TextMD;
+  @include fontsFamilies.FontFamilyInterBold;
+
+  @include breakpoints.mobile {
+    border-left-width: 0em; // 0px
+
+    border-bottom-color: colors.$main;
+    border-bottom-style: solid;
+    border-bottom-width: 0.125em; // 2px
+    @include fontsStyles.TextXS;
+  }
+}
+
+.links {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoints.mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 100%;
+  }
+}

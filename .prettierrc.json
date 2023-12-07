@@ -1,0 +1,16 @@
+{
+	"singleQuote": true,
+	"arrowParens": "always",
+	"printWidth": 120,
+	"tabWidth": 2,
+	"semi": false,
+	"useTabs": true,
+	"trailingComma": "none",
+	"bracketSpacing": true,
+	"bracketSameLine": false,
+	"importOrder": [
+		"<THIRD_PARTY_MODULES>", "^(@utils)|^(@helpers)", "^(@ui)", "^@components/(.*)$", "^[./]"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
+}

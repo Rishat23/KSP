@@ -1,0 +1,32 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+
+.wrapper {
+	flex-grow: 1;
+	display: flex;
+	gap: 0.625em; //10px
+}
+
+.input {
+	flex-grow: 1;
+
+	color: colors.$border;
+	padding: 0.75em 1.25em;
+	background: transparent;
+	border: 1px solid colors.$border;
+	border-radius: 4px;
+}
+
+.button {
+	@include fontsFamilies.FontFamilyInterBold;
+
+	padding: 0.75em 1.25em; //12px 20px
+	border-radius: 4px;
+	background: colors.$main;
+}
+
+.modalButton {
+	margin-left: auto;
+}

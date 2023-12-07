@@ -1,0 +1,42 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.wrapper {
+  position: relative;
+  width: 67%;
+  @include breakpoints.desktop_large {
+    width: 63%;
+  }
+  @include breakpoints.tablet {
+    width: 100%;
+  }
+}
+
+.swiperArrow {
+  position: absolute;
+  z-index: 3;
+  transform: translateY(-50%);
+  top: 50%;
+  background: transparent;
+  @include breakpoints.tablet_small {
+    display: none;
+  }
+
+  &Left {
+    left: 30px;
+
+    &::before {
+      content: url('@assets/icons/slider-arrow-left.svg');
+    }
+  }
+
+  &Right {
+    right: 30px;
+
+    &::before {
+      content: url('@assets/icons/slider-arrow-right.svg');
+    }
+  }
+}

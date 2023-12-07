@@ -1,0 +1,55 @@
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+
+.btn {
+  @include fontsStyles.TextMD;
+  @include fontsFamilies.FontFamilyInterBold;
+  display: block;
+
+  &SizeS {
+    padding: 0.75em 1.25em; //12px 20px
+    border-radius: 0.25em; //4px
+  }
+
+  &SizeM {
+    min-width: 11.875em; //190px
+    padding: 0.9125em 1.25em; //14.6px 20px
+    border-radius: 0.25em; //4px
+  }
+
+  &SizeL {
+    padding: 0.9125em 1.25em; //14.6px 20px
+    border-radius: 0.25em; //4px
+    color: colors.$black;
+
+  }
+
+  &Primary {
+    background: colors.$main;
+  }
+
+
+  &Outlined {
+    background-color: transparent;
+
+    border: 1px solid colors.$main;
+    color: colors.$main;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:disabled, &.btnDisabled {
+    background-color: transparent;
+    color: colors.$white;
+  }
+
+  &MobileWide {
+    @include breakpoints.tablet {
+      width: 100%;
+    }
+  }
+}

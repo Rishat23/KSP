@@ -1,0 +1,29 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.tabs {
+  margin-top: 3.75em; //60px
+  margin-bottom: 2.5em;
+
+  display: flex;
+  text-align: center;
+  border-bottom: 2px solid colors.$white;
+
+  .tab {
+    padding: 0.625em 1.25em 0.625em;
+    margin-bottom: -1px;
+
+    background-color: transparent;
+    color: colors.$white;
+
+    &.active {
+      color: colors.$main;
+      border-bottom: 2px solid colors.$main;
+    }
+
+    @include fontsStyles.TextLG;
+    @include fontsFamilies.FontFamilyInterBold;
+  }
+}

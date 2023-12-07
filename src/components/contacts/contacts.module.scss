@@ -1,0 +1,82 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875em; //14px
+  flex-grow: 1;
+
+  .addressesList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875em;
+    @include fontsStyles.TextLG;
+    @include breakpoints.tablet_small {
+      @include fontsStyles.TextMD;
+    }
+
+    .addressItem {
+      padding: 1.25em 1.875em; //20px 30px
+      display: flex;
+      flex-direction: column;
+      gap: .625em;
+      width: 100%;
+      background-color: colors.$dark;
+      border-radius: .25em;
+
+      .address {
+        @include fontsFamilies.FontFamilyInterBold;
+        @include breakpoints.tablet_small {
+          @include fontsStyles.TextMD;
+        }
+      }
+    }
+  }
+
+  .messengersWrapper {
+    padding: 1.25em 1.875em; //20px 30px
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+
+    width: 100%;
+    background-color: colors.$dark;
+    border-radius: .25em;
+
+    @include fontsFamilies.FontFamilyInterBold;
+    @include fontsStyles.TextLG;
+    @include breakpoints.tablet_small {
+      @include fontsStyles.TextMD;
+    }
+
+    .messengerItem {
+      display: flex;
+      align-items: center;
+      gap: 1.25em;
+
+      &.whatsapp {
+        &::before {
+          content: url("@assets/icons/whatsapp.svg");
+        }
+      }
+
+      &.telegram {
+        &::before {
+          content: url("@assets/icons/telegram.svg");
+        }
+      }
+
+      &.instagram {
+        &::before {
+          content: url("@assets/icons/instagram.svg");
+        }
+      }
+    }
+  }
+}
+
+

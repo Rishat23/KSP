@@ -1,0 +1,77 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$white;
+  opacity: 0.6;
+  z-index: 2;
+
+}
+
+.sidePanelWrapper {
+  max-width: 400px;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: colors.$dark;
+  padding-left: 30px;
+
+  .btnClose {
+    margin-top: 8px;
+    display: flex;
+    background-color: colors.$dark;
+    align-self: end;
+
+    &::before {
+      content: url('@assets/icons/closebtn.svg');
+    }
+  }
+
+  .linksWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    @include fontsStyles.TextMD;
+    @include fontsFamilies.FontFamilyInterBold;
+
+    a:hover {
+      color: colors.$main;
+    }
+  }
+
+  .wrapper {
+    gap: 20px;
+  }
+
+  .addressesWrapper {
+    gap: 20px;
+
+    .addressItem {
+      padding: 0;
+      @include fontsStyles.TextXS;
+    }
+  }
+
+
+  .messengersWrapper {
+    padding: 20px;
+    @include fontsStyles.TextXS;
+
+
+  }
+
+
+}

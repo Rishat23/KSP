@@ -1,0 +1,18 @@
+@use '@assets/styles/mixins/breakpoints';
+
+.wrapper {
+  margin-top: 2.5em; //40px
+
+  display: flex;
+  gap: 1.875em; //30px
+  align-items: start;
+  
+  @include breakpoints.desktop_base {
+    gap: 20px;
+  }
+  @include breakpoints.tablet {
+    flex-direction: column-reverse;
+    gap: 40px;
+
+  }
+}

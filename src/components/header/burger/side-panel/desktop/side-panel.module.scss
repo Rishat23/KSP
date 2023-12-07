@@ -1,0 +1,92 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+
+.sidePanelWrapper {
+  padding: 25px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: colors.$background;
+
+  .headerWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      &::before {
+        content: url('@assets/images/logo.svg');
+      }
+    }
+
+    .btnClose {
+      background-color: colors.$background;
+
+      &::before {
+        content: url('@assets/icons/closebtn.svg');
+      }
+    }
+  }
+
+  .navigationWrapper {
+    padding: 130px;
+    display: flex;
+    align-items: center;
+    gap: 160px;
+
+    .navigationListWrapper {
+      display: flex;
+      gap: 50px;
+      flex-direction: column;
+
+      .navigationItem {
+        @include fontsStyles.DisplayMD;
+        @include fontsFamilies.FontFamilyInterBold;
+
+        &:hover {
+          color: colors.$main;
+          border-bottom: 1px solid colors.$main;
+        }
+      }
+    }
+  }
+
+  .footerListWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .messengerItem {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      @include fontsFamilies.FontFamilyInterBold;
+      @include fontsStyles.TextLG;
+
+      &.whatsapp {
+        &::before {
+          content: url('@assets/icons/whatsapp.svg');
+        }
+      }
+
+      &.telegram {
+        &::before {
+          content: url('@assets/icons/telegram.svg');
+        }
+      }
+
+      &.instagram {
+        &::before {
+          content: url('@assets/icons/instagram.svg');
+        }
+      }
+    }
+  }
+
+
+}

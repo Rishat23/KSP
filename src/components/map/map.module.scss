@@ -1,0 +1,13 @@
+@use '@assets/styles/mixins/breakpoints';
+
+.wrapper {
+
+  width: 72%;
+  height: 513px;
+  @include breakpoints.desktop_small {
+    width: 52%;
+  }
+  @include breakpoints.tablet_small {
+    display: none;
+  }
+}

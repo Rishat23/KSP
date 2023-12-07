@@ -1,0 +1,29 @@
+@use "@assets/styles/vars/colors";
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+
+
+.breadcrumbs {
+  margin-top: 3.125em; //50px
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: colors.$border;
+
+  @include breakpoints.mobile_middle {
+    @include fontsStyles.TextXS;
+  }
+
+  .breadcrumbItem {
+    display: flex;
+    gap: 6px;
+
+    &:last-child .separator {
+      display: none;
+    }
+
+    &:not(:last-child) a {
+      border-bottom: solid 2px colors.$border;
+    }
+  }
+}

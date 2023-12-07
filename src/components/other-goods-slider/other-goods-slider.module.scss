@@ -1,0 +1,67 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.otherGoodsWrapper {
+	margin-top: 6.25em; //100px
+	margin-bottom: 6.25em;
+
+	.title {
+		@include breakpoints.tablet_small {
+			@include fontsStyles.DisplayMD;
+		}
+		@include breakpoints.mobile {
+			@include fontsStyles.TextLG;
+		}
+	}
+
+	.otherGoodsSwiper {
+		position: relative;
+		margin-top: 2.5em; //40px
+
+		.swiperArrow {
+			position: absolute;
+			z-index: 1;
+			transform: translateY(-50%);
+			top: 43%;
+			background: transparent;
+
+			@include breakpoints.desktop {
+				top: 40%;
+			}
+
+			@include breakpoints.mobile {
+				display: none;
+			}
+
+			&Left {
+				left: -20px;
+				transform: translateX(-100%);
+				&::before {
+					content: url('@assets/icons/slider-arrow-left.svg');
+				}
+				@include breakpoints.desktop_huge {
+					left: 0;
+					transform: initial;
+					z-index: 2;
+					background-color: colors.$background;
+				}
+			}
+
+			&Right {
+				right: -20px;
+				transform: translateX(100%);
+				&::before {
+					content: url('@assets/icons/slider-arrow-right.svg');
+				}
+				@include breakpoints.desktop_huge {
+					right: 0;
+					transform: initial;
+					z-index: 2;
+					background-color: colors.$background;
+				}
+			}
+		}
+	}
+}

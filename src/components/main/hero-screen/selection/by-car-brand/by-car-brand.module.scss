@@ -1,0 +1,18 @@
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .title {
+    @include fontsStyles.TextLG;
+    @include breakpoints.mobile_middle {
+      @include fontsStyles.TextMD;
+      @include fontsFamilies.FontFamilyInterBold;
+    }
+  }
+}

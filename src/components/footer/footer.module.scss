@@ -1,0 +1,80 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.footer {
+  padding-top: 2.5em; //40px
+  background-color: colors.$black;
+
+  @include breakpoints.desktop {
+    @include fontsStyles.TextMD;
+  }
+  @include breakpoints.tablet_small {
+    padding-bottom: 60px;
+  }
+  
+  .logo {
+    &::before {
+      content: url('@assets/images/logo-second.svg');
+      @include breakpoints.desktop {
+        content: url('@assets/images/footer-logo-x1000.svg');
+      }
+      @include breakpoints.tablet_small {
+        content: url('@assets/images/footer-logo-x360.svg');
+      }
+    }
+  }
+
+  &ContentWrapper {
+    display: grid;
+    grid-template-areas:
+			'one two three four'
+			'one  . five six';
+
+    justify-content: space-between;
+    row-gap: 1.25em; //20px
+
+    & > *:nth-child(1) {
+      grid-area: one;
+    }
+
+    & > *:nth-child(2) {
+      grid-area: two;
+    }
+
+    & > *:nth-child(3) {
+      grid-area: three;
+    }
+
+    & > *:nth-child(4) {
+      grid-area: four;
+    }
+
+    & > *:nth-child(5) {
+      grid-area: five;
+    }
+
+    & > *:nth-child(6) {
+      grid-area: six;
+    }
+
+    @include breakpoints.desktop {
+      grid-template-areas:
+				'one two three '
+				'four five six';
+    }
+    @include breakpoints.tablet {
+      column-gap: 6.25em;
+    }
+    @include breakpoints.tablet_small {
+      grid-template-areas:
+				'one'
+				'two'
+				'three'
+				'four'
+				'five'
+				'six';
+    }
+  }
+}
